@@ -6,12 +6,16 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        velvox: {
-          purpleLight: '#6C30BF',
-          purpleMedium: '#5F2DA6',
-          tealLight: '#41BFBF',
-          cyan: '#05F2DB',
-          black: '#0D0D0D',
+        purple: {
+          700: '#6C30BF',
+          600: '#5F2DA6',
+        },
+        teal: {
+          400: '#41BFBF',
+          300: '#05F2DB',
+        },
+        black: {
+          900: '#0D0D0D',
         },
       },
     },
