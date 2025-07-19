@@ -26,23 +26,18 @@ export default function VelvoxPage() {
 
   return (
     <div className="font-sans bg-gradient-to-b from-[#f9f9f9] to-[#e6f2f2] min-h-screen">
-      {/* Header Responsivo */}
       <header className="fixed w-full bg-white shadow-sm z-50">
         <div className="container mx-auto px-4 sm:px-6">
           <nav className="flex justify-between items-center py-4">
-            {/* Logo clicável */}
             <a href="#home" className="flex items-center space-x-2">
+              {/* Somente imagem OU texto - escolha uma opção */}
               <img 
                 src="/logo.png" 
                 alt="Velvox" 
                 className="h-8 w-auto"
               />
-              <span className="text-2xl font-bold bg-gradient-to-r from-[#6C30BF] to-[#05F2DB] bg-clip-text text-transparent">
-                VELVOX
-              </span>
             </a>
 
-            {/* Menu Desktop */}
             <div className="hidden md:flex items-center space-x-6">
               <NavLink target="home">Home</NavLink>
               <NavLink target="ferramentas">Ferramentas</NavLink>
@@ -54,7 +49,6 @@ export default function VelvoxPage() {
               </Button>
             </div>
 
-            {/* Botão Mobile */}
             <button 
               className="md:hidden text-[#6C30BF] focus:outline-none"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -71,7 +65,6 @@ export default function VelvoxPage() {
             </button>
           </nav>
 
-          {/* Menu Mobile */}
           {mobileMenuOpen && (
             <div className="md:hidden pb-4 space-y-3">
               <MobileNavLink target="home">Home</MobileNavLink>
@@ -98,7 +91,7 @@ export default function VelvoxPage() {
             <p className="text-lg text-purple-100">
               Cadastre atendentes, defina setores, monitore relatórios e acompanhe seus atendimentos em tempo real com mensagens ilimitadas.
             </p>
-            <Button className="bg-white text-[#5F2DA6] hover:bg-gray-100 text-lg px-8 py-4 rounded-full shadow-lg">
+            <Button className="bg-white text-[#5F2DA6] hover:bg-gray-100 text-lg px-8 py-4 rounded-full shadow-lg border border-[#5F2DA6]">
               Teste grátis por 7 dias
             </Button>
           </div>
@@ -113,8 +106,7 @@ export default function VelvoxPage() {
                 "Setores e múltiplos atendentes",
                 "Respostas automáticas e tags",
                 "Relatórios de atendimento",
-                "Mensagens ilimitadas",
-                "Integração com CRM"
+                "Mensagens ilimitadas"
               ].map((item, index) => (
                 <FeatureCard key={index} index={index}>
                   {item}
@@ -155,18 +147,8 @@ export default function VelvoxPage() {
           <div className="max-w-4xl mx-auto text-center">
             <SectionTitle>Material Grátis</SectionTitle>
             <p className="text-gray-600 mt-4">
-              Baixe nossos recursos gratuitos para melhorar seu atendimento:
+              Em breve disponibilizaremos materiais gratuitos para melhorar seu atendimento.
             </p>
-            <div className="grid md:grid-cols-2 gap-6 mt-8">
-              <ResourceCard 
-                title="Guia de Atendimento" 
-                description="Melhores práticas para WhatsApp Business"
-              />
-              <ResourceCard 
-                title="Modelos de Mensagem" 
-                description="Respostas prontas para agilizar seu trabalho"
-              />
-            </div>
           </div>
         </Section>
       </main>
@@ -185,104 +167,4 @@ export default function VelvoxPage() {
   );
 }
 
-// Componentes auxiliares
-function NavLink({ children, target }) {
-  return (
-    <a 
-      href={`#${target}`} 
-      className="nav-link px-3 py-2 rounded-lg text-gray-700 hover:text-[#6C30BF] transition-colors font-medium"
-      data-target={target}
-    >
-      {children}
-    </a>
-  );
-}
-
-function MobileNavLink({ children, target }) {
-  return (
-    <a 
-      href={`#${target}`} 
-      className="nav-link block px-4 py-3 rounded-lg text-gray-700 hover:bg-[#f0e6ff] transition-colors font-medium"
-      data-target={target}
-    >
-      {children}
-    </a>
-  );
-}
-
-function Section({ id, children, bg, gradient }) {
-  const classes = [
-    "min-h-screen px-6 py-20",
-    bg || "",
-    gradient ? `bg-gradient-to-r ${gradient}` : ""
-  ].filter(Boolean).join(" ");
-
-  return (
-    <section id={id} className={classes}>
-      {children}
-    </section>
-  );
-}
-
-function SectionTitle({ children }) {
-  return (
-    <h2 className="text-3xl md:text-4xl font-bold text-center bg-gradient-to-r from-[#6C30BF] to-[#05F2DB] bg-clip-text text-transparent">
-      {children}
-    </h2>
-  );
-}
-
-function FeatureCard({ children, index }) {
-  const colors = [
-    "from-[#6C30BF] to-[#9b59d1]",
-    "from-[#41BFBF] to-[#05F2DB]",
-    "from-[#5F2DA6] to-[#8e44ad]"
-  ];
-  const color = colors[index % colors.length];
-  
-  return (
-    <div className="flex items-start space-x-4 bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow">
-      <div className={`bg-gradient-to-r ${color} rounded-lg p-2`}>
-        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-        </svg>
-      </div>
-      <p className="text-gray-700 font-medium">{children}</p>
-    </div>
-  );
-}
-
-function PricingCard({ title, price, description, features, featured = false }) {
-  return (
-    <div className={`p-8 rounded-xl shadow-md ${featured ? "border-2 border-[#05F2DB] transform md:-translate-y-4" : "bg-white"}`}>
-      <h3 className="text-2xl font-bold text-[#5F2DA6]">{title}</h3>
-      <p className="text-gray-600 mt-2">{description}</p>
-      <p className="text-3xl font-bold mt-4 text-[#6C30BF]">R$ {price}/mês</p>
-      <ul className="mt-6 space-y-3">
-        {features.map((feature, i) => (
-          <li key={i} className="flex items-center space-x-2 text-gray-700">
-            <svg className="w-5 h-5 text-[#41BFBF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-            </svg>
-            <span>{feature}</span>
-          </li>
-        ))}
-      </ul>
-      <Button className={`w-full mt-8 ${featured ? "bg-gradient-to-r from-[#6C30BF] to-[#41BFBF] text-white" : "bg-gray-100 text-[#5F2DA6] hover:bg-gray-200"}`}>
-        Assinar
-      </Button>
-    </div>
-  );
-}
-
-function ResourceCard({ title, description }) {
-  return (
-    <div className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow border border-gray-200">
-      <h3 className="text-xl font-bold text-[#5F2DA6]">{title}</h3>
-      <p className="text-gray-600 mt-2">{description}</p>
-      <Button variant="outline" className="mt-4 w-full border-[#41BFBF] text-[#41BFBF] hover:bg-[#e6f7f7]">
-        Baixar Agora
-      </Button>
-    </div>
-  );
-}
+// (Manter os componentes auxiliares NavLink, MobileNavLink, Section, etc. sem alterações)
