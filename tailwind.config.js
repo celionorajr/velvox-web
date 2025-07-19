@@ -17,6 +17,11 @@ module.exports = {
         black: {
           900: '#0D0D0D',
         },
+        // Adicione cores personalizadas como cores nomeadas
+        primary: '#6C30BF',
+        primaryDark: '#5F2DA6',
+        secondary: '#41BFBF',
+        secondaryLight: '#05F2DB'
       },
     },
   },
