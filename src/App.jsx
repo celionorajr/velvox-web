@@ -34,7 +34,7 @@ export default function VelvoxPage() {
               <img 
                 src="/logo.png" 
                 alt="Velvox" 
-                className="h-8 w-auto"
+                className="h-10 w-auto"
               />
             </a>
 
