@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+  .text-primary { color: #6C30BF; }
+  .text-primary-dark { color: #5F2DA6; }
+  .bg-primary { background-color: #6C30BF; }
+  .bg-primary-dark { background-color: #5F2DA6; }
+  .border-primary { border-color: #6C30BF; }
+  .border-primary-dark { border-color: #5F2DA6; }
+  
+  /* Garante visibilidade em todos os estados */
+  .btn-cta {
+    color: #5F2DA6 !important;
+  }
+  .btn-cta:hover {
+    color: #6C30BF !important;
+  }
+}
