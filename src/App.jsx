@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { externalUrls } from './config';
 
 export default function VelvoxPage() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -34,7 +35,7 @@ export default function VelvoxPage() {
               <img 
                 src="/logo.png" 
                 alt="Velvox" 
-                className="h-13 w-auto"
+                className="h-10 w-auto"
               />
             </a>
 
@@ -44,8 +45,16 @@ export default function VelvoxPage() {
               <NavLink target="ferramentas">Ferramentas</NavLink>
               <NavLink target="planos">Planos</NavLink>
               <NavLink target="materiais">Material Grátis</NavLink>
-              <Button variant="outline">Login</Button>
-              <Button className="bg-[#6C30BF] text-white hover:bg-[#5F2DA6]">
+              <Button 
+                variant="outline" 
+                onClick={() => window.location.href = externalUrls.login}
+              >
+                Login
+              </Button>
+              <Button 
+                className="bg-primary text-white hover:bg-primary-dark"
+                onClick={() => window.location.href = externalUrls.cadastro}
+              >
                 Cadastro
               </Button>
             </div>
@@ -67,8 +76,17 @@ export default function VelvoxPage() {
               <MobileNavLink target="planos">Planos</MobileNavLink>
               <MobileNavLink target="materiais">Material Grátis</MobileNavLink>
               <div className="flex space-x-4 pt-2">
-                <Button variant="outline" className="w-full">Login</Button>
-                <Button className="w-full bg-[#6C30BF] text-white">
+                <Button 
+                  variant="outline" 
+                  className="w-full"
+                  onClick={() => window.location.href = externalUrls.login}
+                >
+                  Login
+                </Button>
+                <Button 
+                  className="w-full bg-primary text-white"
+                  onClick={() => window.location.href = externalUrls.cadastro}
+                >
                   Cadastro
                 </Button>
               </div>
@@ -89,39 +107,18 @@ export default function VelvoxPage() {
               Cadastre atendentes, defina setores, monitore relatórios e acompanhe seus atendimentos em tempo real.
             </p>
             <Button 
-				variant="cta"
-				className="text-lg px-8 py-4 rounded-full shadow-lg"
-				>
-				Teste grátis por 7 dias
-			</Button>
+              variant="cta"
+              className="text-lg px-8 py-4 rounded-full shadow-lg"
+              onClick={() => window.location.href = externalUrls.testeGratis}
+            >
+              Teste grátis por 7 dias
+            </Button>
           </div>
         </section>
 
         {/* Seção Ferramentas */}
         <section id="ferramentas" className="min-h-screen px-6 py-20 bg-white">
-          <div className="max-w-4xl mx-auto">
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-[#6C30BF] to-[#05F2DB] mb-8">
-              Ferramentas
-            </h2>
-            <div className="grid md:grid-cols-2 gap-8">
-              {[
-                "Dashboard em tempo real",
-                "Setores e múltiplos atendentes",
-                "Respostas automáticas e tags",
-                "Relatórios de atendimento",
-                "Mensagens ilimitadas"
-              ].map((item, index) => (
-                <div key={index} className="flex items-start space-x-4 bg-white p-6 rounded-xl shadow-sm">
-                  <div className="bg-[#6C30BF] rounded-lg p-2">
-                    <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <p className="text-gray-700 font-medium">{item}</p>
-                </div>
-              ))}
-            </div>
-          </div>
+          {/* ... (mantenha o conteúdo existente) ... */}
         </section>
 
         {/* Seção Planos */}
@@ -156,27 +153,13 @@ export default function VelvoxPage() {
 
         {/* Seção Material Grátis */}
         <section id="materiais" className="min-h-screen px-6 py-20 bg-white">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-[#6C30BF] to-[#05F2DB] mb-8">
-              Material Grátis
-            </h2>
-            <p className="text-gray-600">
-              Em breve disponibilizaremos materiais gratuitos para melhorar seu atendimento.
-            </p>
-          </div>
+          {/* ... (mantenha o conteúdo existente) ... */}
         </section>
       </main>
 
       {/* Footer */}
       <footer className="bg-[#0D0D0D] text-white py-12">
-        <div className="container mx-auto px-6 text-center">
-          <div className="flex justify-center mb-6">
-            <img src="/logo.png" alt="Velvox" className="h-10 w-auto"/>
-          </div>
-          <p className="text-gray-400">
-            © {new Date().getFullYear()} Velvox. Todos os direitos reservados.
-          </p>
-        </div>
+        {/* ... (mantenha o conteúdo existente) ... */}
       </footer>
     </div>
   );
@@ -223,7 +206,10 @@ function PricingCard({ title, price, description, features, featured = false }) 
           </li>
         ))}
       </ul>
-      <Button className={`w-full mt-8 ${featured ? "bg-[#6C30BF] text-white" : "bg-gray-100 text-[#5F2DA6]"}`}>
+      <Button
+        className={`w-full mt-8 ${featured ? "bg-[#6C30BF] text-white" : "bg-gray-100 text-[#5F2DA6]"}`}
+        onClick={() => window.location.href = `${externalUrls.planos}?plano=${title.toLowerCase()}`}
+      >
         Assinar
       </Button>
     </div>
