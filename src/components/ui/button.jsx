@@ -1,8 +1,8 @@
 export function Button({ children, className = '', variant = 'default', ...props }) {
-  const base = 'px-4 py-2 rounded-lg font-semibold';
+  const base = 'px-6 py-3 rounded-lg font-medium transition-colors duration-200';
   const variants = {
-    default: 'bg-purple-700 text-white hover:bg-purple-800',
-    outline: 'border border-purple-700 text-purple-700 hover:bg-purple-100',
+    default: 'bg-[#6C30BF] text-white hover:bg-[#5F2DA6]',
+    outline: 'border border-[#6C30BF] text-[#6C30BF] hover:bg-[#f0e6ff]',
   };
 
   return (
