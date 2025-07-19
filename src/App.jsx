@@ -88,9 +88,11 @@ export default function VelvoxPage() {
             <p className="text-lg text-purple-100">
               Cadastre atendentes, defina setores, monitore relatórios e acompanhe seus atendimentos em tempo real.
             </p>
-            <Button className="bg-white text-[#5F2DA6] hover:bg-gray-100 text-lg px-8 py-4 rounded-full shadow-lg border border-[#5F2DA6] hover:text-[#6C30BF]">
-              Teste grátis por 7 dias
-            </Button>
+            <Button 
+  className="bg-white text-primaryDark hover:bg-gray-100 text-lg px-8 py-4 rounded-full shadow-lg border border-primaryDark hover:text-primary"
+>
+  Teste grátis por 7 dias
+		</Button>
           </div>
         </section>
 
