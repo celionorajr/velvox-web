@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 
 export default function VelvoxPage() {
   useEffect(() => {
-    const scrollToSection = (id) => {
+    const scrollToSection = (id: string) => {
       const section = document.getElementById(id);
       if (section) {
         section.scrollIntoView({ behavior: "smooth" });
@@ -14,17 +14,28 @@ export default function VelvoxPage() {
     links.forEach((link) => {
       link.addEventListener("click", (e) => {
         e.preventDefault();
-        scrollToSection(link.getAttribute("data-target"));
+        scrollToSection(link.getAttribute("data-target") || "");
       });
     });
+
+    return () => {
+      links.forEach((link) => {
+        link.removeEventListener("click", () => {});
+      });
+    };
   }, []);
 
   return (
     <div className="font-sans text-gray-900">
       <header className="fixed w-full bg-white shadow z-50">
         <nav className="flex justify-between items-center px-6 py-4">
-          <h1 className="text-2xl font-bold text-purple-700">VELVOX</h1>
-          <div className="space-x-4">
+          <h1
+            onClick={() => document.getElementById("home")?.scrollIntoView({ behavior: "smooth" })}
+            className="text-2xl font-bold text-purple-700 cursor-pointer"
+          >
+            VELVOX
+          </h1>
+          <div className="space-x-4 hidden md:flex items-center">
             <a href="#" className="nav-link" data-target="home">Home</a>
             <a href="#" className="nav-link" data-target="ferramentas">Ferramentas</a>
             <a href="#" className="nav-link" data-target="planos">Planos</a>
