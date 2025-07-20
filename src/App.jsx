@@ -143,7 +143,7 @@ export default function VelvoxPage() {
           </div>
         </section>
 
-        {/* Seção Planos */}
+        {/* Seção Planos - Atualizada */}
         <section id="planos" className="min-h-screen px-6 py-20 bg-gray-50">
           <div className="max-w-6xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-[#6C30BF] to-[#05F2DB] mb-8">
@@ -153,21 +153,42 @@ export default function VelvoxPage() {
               <PricingCard 
                 title="Start" 
                 price="49" 
-                description="Ideal para pequenos negócios"
-                features={["1 Atendente", "Setor único", "100 mensagens/dia", "Dashboard básico"]}
+                description="Para pequenas equipes"
+                features={[
+                  "3 Usuários",
+                  "1 Conexão WhatsApp",
+                  "1 Fila de atendimento",
+                  "100 mensagens/dia",
+                  "Dashboard básico",
+                  "Suporte por e-mail"
+                ]}
               />
               <PricingCard 
                 title="Pro" 
                 price="99" 
-                description="Para equipes que crescem"
-                features={["3 Atendentes", "3 Setores", "Mensagens ilimitadas", "Relatórios completos"]}
+                description="Para negócios em crescimento"
+                features={[
+                  "6 Usuários",
+                  "2 Conexões WhatsApp", 
+                  "3 Filas de atendimento",
+                  "Mensagens ilimitadas",
+                  "Relatórios completos",
+                  "Suporte prioritário (8h-18h)"
+                ]}
                 featured
               />
               <PricingCard 
                 title="Enterprise" 
                 price="199" 
-                description="Recursos avançados e suporte"
-                features={["Atendentes ilimitados", "Setores ilimitados", "Suporte 24/7", "API de integração"]}
+                description="Solução completa para empresas"
+                features={[
+                  "15 Usuários (+R$15/usuário extra)",
+                  "5 Conexões WhatsApp (+R$30/canal extra)",
+                  "Filas ilimitadas",
+                  "API de integração",
+                  "Dashboard avançado",
+                  "Suporte 24/7 com SLA de 2h"
+                ]}
               />
             </div>
           </div>
@@ -243,26 +264,55 @@ function MobileNavLink({ children, target }) {
 
 function PricingCard({ title, price, description, features, featured = false }) {
   return (
-    <div className={`p-8 rounded-xl shadow-md ${featured ? "border-2 border-[#05F2DB] transform scale-105" : "bg-white"}`}>
+    <div className={`relative p-8 rounded-xl shadow-md transition-all duration-300 ${featured ? "border-2 border-[#05F2DB] bg-white transform scale-[1.02]" : "bg-white"}`}>
+      {featured && (
+        <div className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-[#05F2DB] text-[#0D0D0D] text-xs font-bold py-1 px-3 rounded-full">
+          MAIS POPULAR
+        </div>
+      )}
+      
       <h3 className="text-2xl font-bold text-[#5F2DA6]">{title}</h3>
       <p className="text-gray-600 mt-2">{description}</p>
       <p className="text-3xl font-bold mt-4 text-[#6C30BF]">R$ {price}/mês</p>
-      <ul className="mt-6 space-y-3">
-        {features.map((feature, i) => (
-          <li key={i} className="flex items-center space-x-2 text-gray-700">
-            <svg className="w-5 h-5 text-[#41BFBF]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-            </svg>
-            <span>{feature}</span>
-          </li>
-        ))}
-      </ul>
+      
+      <div className="mt-6 space-y-4">
+        <div className="bg-[#F5F0FF] p-3 rounded-lg">
+          <h4 className="font-semibold text-[#6C30BF]">Configurações Principais</h4>
+          <ul className="mt-2 space-y-2">
+            {features.slice(0, 3).map((feature, i) => (
+              <li key={i} className="flex items-start space-x-2 text-gray-700">
+                <svg className="w-5 h-5 text-[#41BFBF] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                </svg>
+                <span dangerouslySetInnerHTML={{ __html: feature }}></span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        
+        <h4 className="font-semibold text-[#6C30BF] mt-4">Benefícios Incluídos</h4>
+        <ul className="space-y-2">
+          {features.slice(3).map((feature, i) => (
+            <li key={i+3} className="flex items-start space-x-2 text-gray-700">
+              <svg className="w-5 h-5 text-[#41BFBF] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+              <span dangerouslySetInnerHTML={{ __html: feature }}></span>
+            </li>
+          ))}
+        </ul>
+      </div>
+
       <Button
         className={`w-full mt-8 ${featured ? "bg-[#6C30BF] text-white hover:bg-[#5F2DA6]" : "bg-gray-100 text-[#5F2DA6] hover:bg-gray-200"}`}
         onClick={() => window.location.href = `${externalUrls.planos}?plano=${title.toLowerCase()}`}
       >
-        Assinar
+        Assinar Agora
       </Button>
+      
+      {featured && (
+        <p className="text-xs text-center text-gray-500 mt-2">Melhor custo-benefício</p>
+      )}
     </div>
   );
 }
