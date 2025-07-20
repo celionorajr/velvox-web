@@ -44,7 +44,7 @@ export default function VelvoxPage() {
               <NavLink target="home">Home</NavLink>
               <NavLink target="ferramentas">Ferramentas</NavLink>
               <NavLink target="planos">Planos</NavLink>
-              <NavLink target="materiais">Material Grátis</NavLink>
+              //<NavLink target="materiais">Material Grátis</NavLink>
               <Button 
                 variant="outline" 
                 onClick={() => window.location.href = externalUrls.login}
@@ -131,7 +131,6 @@ export default function VelvoxPage() {
                 "Respostas automáticas e tags",
                 "Relatórios de atendimento",
                 "Mensagens ilimitadas",
-                "Integração com outros sistemas"
               ].map((item, index) => (
                 <div key={index} className="flex items-start space-x-4 bg-white p-6 rounded-xl shadow-sm">
                   <div className="bg-[#6C30BF] rounded-lg p-2">
@@ -176,7 +175,7 @@ export default function VelvoxPage() {
           </div>
         </section>
 
-        {/* Seção Material Grátis */}
+        /* { Seção Material Grátis }
         <section id="materiais" className="min-h-screen px-6 py-20 bg-white">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-[#6C30BF] to-[#05F2DB] mb-8">
@@ -201,7 +200,7 @@ export default function VelvoxPage() {
               ))}
             </div>
           </div>
-        </section>
+        </section> */
       </main>
 
       {/* Footer */}
