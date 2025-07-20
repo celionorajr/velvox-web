@@ -44,7 +44,6 @@ export default function VelvoxPage() {
               <NavLink target="home">Home</NavLink>
               <NavLink target="ferramentas">Ferramentas</NavLink>
               <NavLink target="planos">Planos</NavLink>
-              <NavLink target="materiais">Material Grátis</NavLink>
               <Button 
                 variant="outline" 
                 onClick={() => window.location.href = externalUrls.login}
@@ -76,7 +75,6 @@ export default function VelvoxPage() {
               <MobileNavLink target="home">Home</MobileNavLink>
               <MobileNavLink target="ferramentas">Ferramentas</MobileNavLink>
               <MobileNavLink target="planos">Planos</MobileNavLink>
-//<MobileNavLink target="materiais">Material Grátis</MobileNavLink>
               <div className="flex space-x-4 pt-2">
                 <Button 
                   variant="outline" 
@@ -174,33 +172,6 @@ export default function VelvoxPage() {
             </div>
           </div>
         </section>
-
-         {/* Seção Material Grátis*/ }
-        /*<section id="materiais" className="min-h-screen px-6 py-20 bg-white">
-          <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-[#6C30BF] to-[#05F2DB] mb-8">
-              Material Grátis
-            </h2>
-            <div className="grid md:grid-cols-3 gap-6">
-              {[
-                "Guia de atendimento no WhatsApp",
-                "Modelos de mensagens",
-                "Fluxo de atendimento ideal"
-              ].map((item, index) => (
-                <div key={index} className="bg-gray-50 p-6 rounded-lg shadow-sm">
-                  <h3 className="text-xl font-bold text-[#6C30BF] mb-3">{item}</h3>
-                  <Button 
-                    variant="outline" 
-                    className="mt-4"
-                    onClick={() => window.location.href = `${externalUrls.materiais}?tipo=${item.replace(/\s+/g, '-').toLowerCase()}`}
-                  >
-                    Baixar
-                  </Button>
-                </div>
-              ))}
-            </div>
-          </div>
-        </section> */
       </main>
 
       {/* Footer */}
