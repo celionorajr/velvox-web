@@ -44,7 +44,7 @@ export default function VelvoxPage() {
               <NavLink target="home">Home</NavLink>
               <NavLink target="ferramentas">Ferramentas</NavLink>
               <NavLink target="planos">Planos</NavLink>
-              //<NavLink target="materiais">Material Grátis</NavLink>
+              <NavLink target="materiais">Material Grátis</NavLink>
               <Button 
                 variant="outline" 
                 onClick={() => window.location.href = externalUrls.login}
@@ -76,7 +76,7 @@ export default function VelvoxPage() {
               <MobileNavLink target="home">Home</MobileNavLink>
               <MobileNavLink target="ferramentas">Ferramentas</MobileNavLink>
               <MobileNavLink target="planos">Planos</MobileNavLink>
-              <MobileNavLink target="materiais">Material Grátis</MobileNavLink>
+//<MobileNavLink target="materiais">Material Grátis</MobileNavLink>
               <div className="flex space-x-4 pt-2">
                 <Button 
                   variant="outline" 
@@ -175,8 +175,8 @@ export default function VelvoxPage() {
           </div>
         </section>
 
-        /* { Seção Material Grátis }
-        <section id="materiais" className="min-h-screen px-6 py-20 bg-white">
+         {/* Seção Material Grátis*/ }
+        /*<section id="materiais" className="min-h-screen px-6 py-20 bg-white">
           <div className="max-w-4xl mx-auto text-center">
             <h2 className="text-3xl md:text-4xl font-bold text-center text-transparent bg-clip-text bg-gradient-to-r from-[#6C30BF] to-[#05F2DB] mb-8">
               Material Grátis
